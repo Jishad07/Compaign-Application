@@ -89,13 +89,17 @@ class FormCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 10),
                     Expanded(
-                      child: CustomInput(
-                        label: '"From" Email',
-                        controller: emailController,
-                        validator: (value) => value?.isEmpty ?? true
-                            ? 'Please enter Field 2'
-                            : null,
-                      ),
+                     child: CustomInput(
+  label: '"From" Email',
+  controller: emailController,
+  validator: (value) {
+    if (value?.isEmpty ?? true) return 'Please enter email';
+    String pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+    RegExp regex = RegExp(pattern);
+    if (!regex.hasMatch(value!)) return 'Please enter a valid email address';
+    return null;
+  },
+),
                     ),
                   ],
                 ),
