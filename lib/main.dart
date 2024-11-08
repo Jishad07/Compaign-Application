@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
 
-import 'views/homescreen.dart';
+
+import 'views/homescreen/homescreen.dart'; // Import your form screen
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+   const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Campaign Form',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.orange,
       ),
-      home:  FormScreen()
+      home: FormScreen(), // Your FormScreen widget
     );
   }
 }
-
-

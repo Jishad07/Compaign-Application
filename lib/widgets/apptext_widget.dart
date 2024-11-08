@@ -1,10 +1,11 @@
 import 'package:flutter/widgets.dart';
 
+// ignore: must_be_immutable
 class AppText extends StatelessWidget {
-  String?text;
+  String? text;
   double? textsize;
-  Color?textcolor;
-   AppText({
+  Color? textcolor;
+  AppText({
     this.text,
     this.textsize,
     this.textcolor,
@@ -13,6 +14,6 @@ class AppText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text("$text", style:  TextStyle(fontSize: textsize));
+    return Text("$text", style: TextStyle(fontSize: textsize));
   }
 }
